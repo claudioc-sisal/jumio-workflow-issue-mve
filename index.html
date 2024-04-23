@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jumio workflow test</title>
+  </head>
+  <body>
+    <jumio-sdk
+      style="height: 100dvh"
+      dc="eu"
+      token="xxx"
+    ></jumio-sdk>
+
+    <script type="module" src="/main.js"></script>
+
+    <script>
+      const jumioSdkElementStart = document.querySelector("jumio-sdk");
+      jumioSdkElementStart.addEventListener("workflow:start", (event) => {
+        const { detail } = event;
+        console.log(detail.accountId, detail.workflowId);
+      });
+    </script>
+    <script>
+      const jumioSdkElementSucess = document.querySelector("jumio-sdk");
+      jumioSdkElementSucess.addEventListener("workflow:success", (event) => {
+        const { detail } = event;
+        console.log(detail.accountId, detail.workflowId);
+      });
+    </script>
+  </body>
+</html>

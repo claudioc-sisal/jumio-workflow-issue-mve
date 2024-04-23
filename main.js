@@ -1,0 +1,2 @@
+import "@jumio/websdk"
+
